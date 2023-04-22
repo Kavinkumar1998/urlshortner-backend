@@ -17,7 +17,7 @@ if(!url){
     click++;
    let updated = await URL.updateOne({ shorturl: url.shorturl, click: click });
    const longurl = await URL.findOne({shorturl:shorturl});
-   return res.status(200).send(longurl.longurl);
+   return res.status(200).send({longurl:longurl.longurl});
 }
     }catch(error){
         console.log(error);
