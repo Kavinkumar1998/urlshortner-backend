@@ -17,7 +17,7 @@ if(!url){
     click++;
    let updated = await URL.updateOne({ shorturl: url.shorturl, click: click });
    const longurl = await URL.findOne({shorturl:shorturl});
-   res.status(200).send({longurl:longurl.longurl}).redirect(longurl.longurl);;
+   res.status(200).redirect(longurl.longurl);;
     
 }
     }catch(error){
