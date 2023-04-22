@@ -14,8 +14,8 @@ if(!url){
     res.status(400).json({message:"Invalid URL"});
 }else{
     let click = url.click;
-    click++;
-   let updated = await URL.updateOne({ shorturl: url.shorturl, click: click });
+  let update = { click:click++ } ; 
+let updated = await URL.findOneAndUpdate({ shorturl: url.shorturl}, {$set:update});
    const longurl = await URL.findOne({shorturl:shorturl});
    res.status(200).redirect(longurl.longurl);;
     
