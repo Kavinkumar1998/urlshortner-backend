@@ -6,6 +6,7 @@ import { signupRouter } from "./routes/Signup.js";
 import { loginRouter } from "./routes/Login.js";
 import { ShortnerRouter } from "./routes/Urlshortner.js";
 import { isSignedIn } from "./routes/Autherization.js";
+import { redirectrouter } from "./routes/Redirect.js";
 
 
 
@@ -32,4 +33,5 @@ res.send("Welcome To App Server")
 app.use("/",signupRouter)
 app.use("/",loginRouter)
 app.use("/",isSignedIn ,ShortnerRouter)
+app.use("/",redirectrouter)
 app.listen(PORT,()=>console.log(`Server Started at ${PORT}`));
