@@ -32,6 +32,6 @@ res.send("Welcome To App Server")
 
 app.use("/",signupRouter)
 app.use("/",loginRouter)
-app.use("/",isSignedIn ,ShortnerRouter)
+app.use("/",ShortnerRouter)
 app.use("/",redirectrouter)
 app.listen(PORT,()=>console.log(`Server Started at ${PORT}`));

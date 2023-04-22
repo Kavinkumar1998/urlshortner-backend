@@ -13,11 +13,11 @@ const url = await URL.findOne({shorturl:shorturl});
 if(!url){
     res.status(400).json({message:"Invalid URL"});
 }else{
-    let click = await url.click;
+    let click = url.click;
     click++;
    let updated = await URL.updateOne({ shorturl: url.shorturl, click: click });
-   const longurl = updated.longurl;
-    res.status(200).json({message:"url is here"},longurl);
+   const longurl = await URL.findOne({shorturl:shorturl});
+   return res.status(200).send(longurl.longurl);
 }
     }catch(error){
         console.log(error);
