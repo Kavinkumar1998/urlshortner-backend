@@ -15,7 +15,8 @@ if(!url){
     let click = await url.click;
     click++;
    let updated = await URL.updateOne({ shorturl: url.shorturl, click: click });
-    return res.redirect(url.longurl);
+   const url = updated.longurl;
+    res.status(200).json({message:"url is here"},url);
 }
     }catch(error){
         console.log(error);
