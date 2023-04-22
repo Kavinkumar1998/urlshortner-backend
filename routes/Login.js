@@ -23,7 +23,9 @@ if(!user){
    else{
     const token =  generateAuthToken(user._id);
     let Id=user._id
-    res.status(200).json({message:"Logged in successfully",token,Id})
+    const Name = user.Name;
+const Email = user.Email;
+    res.status(200).json({message:"Logged in successfully",token,Id,Name,Email})
    }
 
     }catch(error){
